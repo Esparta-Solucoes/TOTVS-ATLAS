@@ -63,6 +63,7 @@ O objetivo central é personalizar a jornada dos clientes da TOTVS, atuando como
 * RAG
 * Machine Learning (ML)
 * BI
+* Vectorstore
 * SGBD
 * Cloud
 * Clusterização
