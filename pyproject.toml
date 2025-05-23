@@ -30,6 +30,13 @@ python-dotenv = "1.0.1"
 fastapi = "^0.115.9"
 gunicorn = "^23.0.0"
 uvicorn = "^0.34.0"
+ipywidgets = "^8.1.7"
+matplotlib = "^3.10.3"
+seaborn = "^0.13.2"
+chart-studio = "^1.1.0"
+cufflinks = "^0.17.3"
+scikit-learn = "^1.6.1"
+nbformat = ">=4.2.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "6.29.5"
