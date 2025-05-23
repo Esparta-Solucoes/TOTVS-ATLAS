@@ -68,6 +68,54 @@ O objetivo central é personalizar a jornada dos clientes da TOTVS, atuando como
 * Cloud
 * Clusterização
 
+## ⚙️ Como executar:
+
+### Pré-requisitos
+
+1. Instale o **Poetry** (gerenciador de pacotes) na versão **2.1.1**:
+
+**Windows:**
+
+```bash
+(Invoke-WebRequest -Uri https://install.python-poetry.org/2.1.1 -UseBasicParsing).Content | py -
+```
+
+**Mac/Linux:**
+
+```bash
+curl -sSL https://install.python-poetry.org/2.1.1 | python3 -
+```
+
+**Verifique a instalação:**
+
+```bash
+poetry --version  # Deve exibir: Poetry (version 2.1.1)
+```
+
+Se você tiver uma versão diferente instalada, pode desinstalá-la primeiro:
+
+```bash
+# Windows
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py - --uninstall
+
+# Mac/Linux
+curl -sSL https://install.python-poetry.org | python3 - --uninstall
+```
+
+### Instalando dependências e configurando o ambiente
+
+```bash
+# Instale as dependências usando o Poetry
+poetry install
+
+# Ative o ambiente do Poetry
+poetry shell
+```
+
+### ⚠️ Atenção
+
+A partir da versão **2.4**, o **PyTorch** oferece suporte oficial ao **Python 3.12**, incluindo a funcionalidade `torch.compile`. Para garantir máxima estabilidade e compatibilidade com todas as bibliotecas utilizadas neste projeto, recomendamos o uso do **Python 3.11.8**, conforme especificado no arquivo `pyproject.toml`.
+
 ## Equipe
 
 - [Esparta-Soluções](https://github.com/Esparta-Solucoes)
