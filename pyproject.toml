@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "TOTVS ATLAS"
+version = "0.1.0"
+description = "TOTVS ATLAS é um projeto cuja a proposta é atender os desafios do Enterprise Challenge 2025 da FIAP. O projeto busca criar um agente de IA capazes de entender relatórios gerando insights para stakeholders de cada empresa."
+authors = ["Esparta-Solucoes: https://github.com/Esparta-Solucoes"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+
+# Core ML/AI
+
+# Document Processing
+pandas = "^2.1.3"
+
+# Databases
+kagglehub = "^0.3.12"
+
+# LangChain Stack
+
+# Vector Store
+
+# LLM APIs
+
+# Interface
+
+# Utilities
+python-dotenv = "1.0.1"
+fastapi = "^0.115.9"
+gunicorn = "^23.0.0"
+uvicorn = "^0.34.0"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "6.29.5"
+gunicorn = "^23.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
