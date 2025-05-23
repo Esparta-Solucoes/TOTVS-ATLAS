@@ -172,9 +172,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+<<<<<<< HEAD
 
 # VS Code settings
 .vscode/
 
 # Templates
 Templates_Desafio/Challenge_TOTVS_2025_MassaDados_v1.zip
+=======
+>>>>>>> e96b47961a9080c4ebd08722ce4d21cae05d30e5
