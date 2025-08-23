@@ -5,8 +5,8 @@ from io import StringIO
 # Define o caminho base para a pasta de dados, relativo à localização do script
 caminho_base = os.path.join(os.path.dirname(__file__), "..", "data", "dataset_totvs")
 
-# Define o caminho do arquivo de saída na mesma pasta do script
-arquivo_saida = os.path.join(os.path.dirname(__file__), "exploracao_output.txt")
+# Define o caminho do arquivo de saída na pasta de dados
+arquivo_saida = os.path.join(os.path.dirname(__file__), "..", "data", "exploracao_output_dados_brutos.txt")
 
 # Lista dos arquivos a explorar
 arquivos = [

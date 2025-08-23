@@ -49,8 +49,8 @@ tabelas_para_explorar = [
     "Dim_LinhaReceita"
 ]
 
-# Define o caminho do arquivo de saída na mesma pasta do script
-arquivo_saida = os.path.join(os.path.dirname(__file__), "exploracao_output_dados_tratados.txt")
+# Define o caminho do arquivo de saída na pasta de dados
+arquivo_saida = os.path.join(os.path.dirname(__file__), "..", "data", "exploracao_output_dados_tratados.txt")
 
 
 # --- FUNÇÕES DE ANÁLISE ---
