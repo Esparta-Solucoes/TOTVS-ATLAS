@@ -1,0 +1,785 @@
+====================================================================================================
+TABELA: FATO_CONSUMO
+-> Linhas: 676090, Colunas: 14
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 676090 entries, 0 to 676089
+Data columns (total 14 columns):
+ #   Column                    Non-Null Count   Dtype  
+---  ------                    --------------   -----  
+ 0   id_fato                   676090 non-null  int64  
+ 1   cd_cliente                676090 non-null  object 
+ 2   cd_produto                676090 non-null  int64  
+ 3   cd_contrato               676090 non-null  int64  
+ 4   cd_tempo                  676090 non-null  int64  
+ 5   qtd_produtos_contratados  676090 non-null  int64  
+ 6   meses_bonif               676090 non-null  int64  
+ 7   prc_unitario              676090 non-null  float64
+ 8   vl_pct_desc_temp          676090 non-null  float64
+ 9   vl_pct_desconto           676090 non-null  float64
+ 10  vl_desconto_temporario    676090 non-null  float64
+ 11  vl_desconto               676090 non-null  float64
+ 12  vl_total                  676090 non-null  float64
+ 13  vl_full                   676090 non-null  float64
+dtypes: float64(7), int64(6), object(1)
+memory usage: 72.2+ MB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['id_fato', 'cd_cliente', 'cd_produto', 'cd_contrato', 'cd_tempo', 'qtd_produtos_contratados', 'meses_bonif', 'prc_unitario', 'vl_pct_desc_temp', 'vl_pct_desconto', 'vl_desconto_temporario', 'vl_desconto', 'vl_total', 'vl_full']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   id_fato cd_cliente  cd_produto  cd_contrato  cd_tempo  qtd_produtos_contratados  meses_bonif  prc_unitario  vl_pct_desc_temp  vl_pct_desconto  vl_desconto_temporario  vl_desconto     vl_total   vl_full
+0   676091     T00053        8788            1       536                         1            0   1312.612425               0.0              0.0                     0.0          0.0  1312.612425  0.004204
+1   676092     T00053        9090            1       536                         1            0   1312.612425               0.0              0.0                     0.0          0.0  1312.612425  0.004204
+2   676093     T00053        9175            1       536                         1            0   1312.612425               0.0              0.0                     0.0          0.0  1312.612425  0.004204
+3   676094     T00053        9198            1       536                         1            0   1312.612425               0.0              0.0                     0.0          0.0  1312.612425  0.004204
+4   676095     T00053        9213            1       536                         1            0   1312.612425               0.0              0.0                     0.0          0.0  1312.612425  0.004204
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+id_fato                     0
+cd_cliente                  0
+cd_produto                  0
+cd_contrato                 0
+cd_tempo                    0
+qtd_produtos_contratados    0
+meses_bonif                 0
+prc_unitario                0
+vl_pct_desc_temp            0
+vl_pct_desconto             0
+vl_desconto_temporario      0
+vl_desconto                 0
+vl_total                    0
+vl_full                     0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+id_fato                     676090
+cd_cliente                    4051
+cd_produto                    5365
+cd_contrato                     58
+cd_tempo                       303
+qtd_produtos_contratados       601
+meses_bonif                     19
+prc_unitario                 11351
+vl_pct_desc_temp               510
+vl_pct_desconto               2743
+vl_desconto_temporario        1753
+vl_desconto                   5187
+vl_total                     13546
+vl_full                      10517
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+                             count          mean            std            min            25%           50%           75%           max
+id_fato                   676090.0  1.014136e+06  195170.516086  676091.000000  845113.250000  1.014136e+06  1.183158e+06  1.352180e+06
+cd_produto                676090.0  1.114211e+04    2216.604626    7414.000000    9228.000000  1.108200e+04  1.330000e+04  1.482300e+04
+cd_contrato               676090.0  1.337045e+03    3212.402844       1.000000       2.000000  4.860000e+02  1.030000e+03  3.481800e+04
+cd_tempo                  676090.0  4.974618e+02      91.340403     304.000000     424.000000  5.230000e+02  5.770000e+02  6.060000e+02
+qtd_produtos_contratados  676090.0  1.094157e+02    1537.169382       0.000000       1.000000  3.000000e+00  2.500000e+01  1.299500e+05
+meses_bonif               676090.0  8.600996e+01     279.834892       0.000000       0.000000  0.000000e+00  0.000000e+00  9.990000e+02
+prc_unitario              676090.0  1.899785e+03   16238.181148       0.004204      24.172180  1.037470e+02  7.428762e+02  3.573279e+06
+vl_pct_desc_temp          676090.0  1.276172e+00       4.303155       0.000000       0.000000  0.000000e+00  0.000000e+00  4.161819e+01
+vl_pct_desconto           676090.0  3.989732e+00       8.541891       0.000000       0.000000  0.000000e+00  8.996255e-01  4.203437e+01
+vl_desconto_temporario    676090.0  5.079295e+01     715.946746       0.000000       0.000000  0.000000e+00  0.000000e+00  4.316686e+04
+vl_desconto               676090.0  1.007990e+03    8228.015816       0.000000       0.000000  0.000000e+00  5.704634e+00  3.747968e+05
+vl_total                  676090.0  5.423269e+03   34424.614293       0.004204     181.270330  7.623695e+02  3.247059e+03  3.573279e+06
+vl_full                   676090.0  4.991275e+03   32684.845241       0.000000      73.567504  4.564212e+02  2.690048e+03  2.962229e+06
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+             count unique     top  freq
+cd_cliente  676090   4051  TDC1GA  9825
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_CLIENTE
+-> Linhas: 10615, Colunas: 4
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 10615 entries, 0 to 10614
+Data columns (total 4 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   cd_cliente      10615 non-null  object
+ 1   cd_segmento     10615 non-null  int64 
+ 2   cd_faturamento  10615 non-null  int64 
+ 3   cd_localidade   10615 non-null  int64 
+dtypes: int64(3), object(1)
+memory usage: 331.8+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_cliente', 'cd_segmento', 'cd_faturamento', 'cd_localidade']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+  cd_cliente  cd_segmento  cd_faturamento  cd_localidade
+0      99069          276              52            210
+1      99958          259              49            204
+2      99999          267              52            210
+3     CARAMU          240              52            184
+4     T00018          265              42            210
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_cliente        0
+cd_segmento       0
+cd_faturamento    0
+cd_localidade     0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_cliente        10615
+cd_segmento          69
+cd_faturamento       13
+cd_localidade        53
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+                  count        mean        std    min    25%    50%    75%    max
+cd_segmento     10615.0  246.828827  19.273086  208.0  231.0  244.0  265.0  276.0
+cd_faturamento  10615.0   47.378615   4.941235   40.0   42.0   49.0   52.0   52.0
+cd_localidade   10615.0  196.189637  14.668626  160.0  188.0  198.0  210.0  212.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+            count unique     top freq
+cd_cliente  10615  10615  TFEEYQ    1
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_CONTRATO
+-> Linhas: 70806, Colunas: 4
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 70806 entries, 0 to 70805
+Data columns (total 4 columns):
+ #   Column                  Non-Null Count  Dtype 
+---  ------                  --------------  ----- 
+ 0   cd_contrato             70806 non-null  int64 
+ 1   dt_assinatura_contrato  70806 non-null  object
+ 2   cd_modalidade           70806 non-null  int64 
+ 3   cd_status               70806 non-null  int64 
+dtypes: int64(3), object(1)
+memory usage: 2.2+ MB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_contrato', 'dt_assinatura_contrato', 'cd_modalidade', 'cd_status']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_contrato dt_assinatura_contrato  cd_modalidade  cd_status
+0            1             1971-04-19              9          1
+1            2             1971-04-19              9          2
+2            3             1988-04-05              9          2
+3            4             1988-07-20              9          2
+4            5             1988-12-02              9          1
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_contrato               0
+dt_assinatura_contrato    0
+cd_modalidade             0
+cd_status                 0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_contrato               70806
+dt_assinatura_contrato     6100
+cd_modalidade                13
+cd_status                     7
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+                 count          mean           std  min       25%      50%       75%      max
+cd_contrato    70806.0  35403.500000  20440.075917  1.0  17702.25  35403.5  53104.75  70806.0
+cd_modalidade  70806.0      6.616727      2.744936  1.0      4.00      8.0      9.00     13.0
+cd_status      70806.0      2.614835      1.963496  1.0      1.00      2.0      4.00      7.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+                        count unique         top freq
+dt_assinatura_contrato  70806   6100  2020-09-30   62
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_PRODUTO
+-> Linhas: 7413, Colunas: 4
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 7413 entries, 0 to 7412
+Data columns (total 4 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   cd_produto  7413 non-null   int64 
+ 1   ds_produto  7413 non-null   object
+ 2   cd_marca    7413 non-null   int64 
+ 3   cd_lin_rec  7413 non-null   int64 
+dtypes: int64(3), object(1)
+memory usage: 231.8+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_produto', 'ds_produto', 'cd_marca', 'cd_lin_rec']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_produto                       ds_produto  cd_marca  cd_lin_rec
+0        7414      WINRMTDSKTPSRVCAL2016DVCCAL       177         175
+1        7415        WINSVRCAL 2016 SNGLDVCCAL       177         175
+2        7416     WINSVRSTDCORE20162LICCORELIC       177         175
+3        7417  ACESSO E-LEARNING VIRTUAL AGE\t       125         141
+4        7418       ADESAO APP MEU CHECKLIST\t       145         107
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_produto    0
+ds_produto    0
+cd_marca      0
+cd_lin_rec    0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_produto    7413
+ds_produto    7095
+cd_marca        94
+cd_lin_rec      88
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+             count          mean          std     min     25%      50%      75%      max
+cd_produto  7413.0  11120.000000  2140.093105  7414.0  9267.0  11120.0  12973.0  14826.0
+cd_marca    7413.0    141.989073    25.728239    95.0   119.0    147.0    159.0    188.0
+cd_lin_rec  7413.0    139.800621    28.387277    89.0   107.0    146.0    174.0    176.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+           count unique                   top freq
+ds_produto  7413   7095  SMS FATURAMENTO EMS2    3
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_NPS
+-> Linhas: 14143, Colunas: 12
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 14143 entries, 0 to 14142
+Data columns (total 12 columns):
+ #   Column                     Non-Null Count  Dtype  
+---  ------                     --------------  -----  
+ 0   cd_nps                     14143 non-null  int64  
+ 1   cd_cliente                 14143 non-null  object 
+ 2   respondeAt                 14143 non-null  object 
+ 3   resposta_NPS               14143 non-null  int64  
+ 4   resposta_unidade           11311 non-null  float64
+ 5   nota_SupTec_Agilidade      8067 non-null   float64
+ 6   nota_SupTec_Atendimento    7161 non-null   float64
+ 7   nota_Comercial             6907 non-null   float64
+ 8   nota_Custos                7504 non-null   float64
+ 9   nota_AdmFin_Atendimento    6494 non-null   float64
+ 10  nota_Sofware               5821 non-null   float64
+ 11  nota_Software_Atualizacao  7435 non-null   float64
+dtypes: float64(8), int64(2), object(2)
+memory usage: 1.3+ MB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_nps', 'cd_cliente', 'respondeAt', 'resposta_NPS', 'resposta_unidade', 'nota_SupTec_Agilidade', 'nota_SupTec_Atendimento', 'nota_Comercial', 'nota_Custos', 'nota_AdmFin_Atendimento', 'nota_Sofware', 'nota_Software_Atualizacao']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_nps cd_cliente  respondeAt  resposta_NPS  resposta_unidade  nota_SupTec_Agilidade  nota_SupTec_Atendimento  nota_Comercial  nota_Custos  nota_AdmFin_Atendimento  nota_Sofware  nota_Software_Atualizacao
+0   66489     TEZHBA  2023-04-28             9              10.0                    7.0                      9.0             3.0          8.0                     10.0          10.0                       10.0
+1   66490     T04819  2025-03-24             8               9.0                    8.0                      NaN             9.0          8.0                      8.0           NaN                        NaN
+2   66491     T11082  2024-11-22            10               NaN                    NaN                      NaN             NaN          7.0                      NaN           NaN                        NaN
+3   66492     T10872  2025-01-13            10               9.0                    8.0                      NaN             8.0          7.0                      8.0           8.0                        9.0
+4   66493     T01690  2025-02-17             6               8.0                    4.0                      NaN             9.0          7.0                      7.0          10.0                       10.0
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_nps                          0
+cd_cliente                      0
+respondeAt                      0
+resposta_NPS                    0
+resposta_unidade             2832
+nota_SupTec_Agilidade        6076
+nota_SupTec_Atendimento      6982
+nota_Comercial               7236
+nota_Custos                  6639
+nota_AdmFin_Atendimento      7649
+nota_Sofware                 8322
+nota_Software_Atualizacao    6708
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_nps                       14143
+cd_cliente                    4862
+respondeAt                    1503
+resposta_NPS                    11
+resposta_unidade                11
+nota_SupTec_Agilidade           11
+nota_SupTec_Atendimento         11
+nota_Comercial                  11
+nota_Custos                     11
+nota_AdmFin_Atendimento         11
+nota_Sofware                    11
+nota_Software_Atualizacao       20
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+                             count          mean          std      min      25%      50%      75%      max
+cd_nps                     14143.0  73560.000000  4082.876764  66489.0  70024.5  73560.0  77095.5  80631.0
+resposta_NPS               14143.0      8.228169     1.839261      0.0      8.0      8.0     10.0     10.0
+resposta_unidade           11311.0      8.312086     1.898539      0.0      8.0      9.0     10.0     10.0
+nota_SupTec_Agilidade       8067.0      7.530309     1.990037      0.0      7.0      8.0      9.0     10.0
+nota_SupTec_Atendimento     7161.0      8.105851     1.800596      0.0      7.0      8.0      9.0     10.0
+nota_Comercial              6907.0      8.455770     1.943573      0.0      8.0      9.0     10.0     10.0
+nota_Custos                 7504.0      6.879931     2.006747      0.0      6.0      7.0      8.0     10.0
+nota_AdmFin_Atendimento     6494.0      8.400062     1.833709      0.0      8.0      9.0     10.0     10.0
+nota_Sofware                5821.0      7.908950     2.145151      0.0      7.0      8.0     10.0     10.0
+nota_Software_Atualizacao   7435.0     21.667922    29.817418      0.0      8.0      9.0     10.0    100.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+            count unique         top freq
+cd_cliente  14143   4862      TEZIIV   12
+respondeAt  14143   1503  2020-03-20   64
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_SEGMENTO
+-> Linhas: 69, Colunas: 3
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 69 entries, 0 to 68
+Data columns (total 3 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   cd_segmento     69 non-null     int64 
+ 1   ds_segmento     69 non-null     object
+ 2   ds_subsegmento  68 non-null     object
+dtypes: int64(1), object(2)
+memory usage: 1.7+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_segmento', 'ds_segmento', 'ds_subsegmento']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_segmento    ds_segmento                      ds_subsegmento
+0          208  AGROINDUSTRIA                       AGROINDUSTRIA
+1          209  AGROINDUSTRIA           COOPERATIVA  AGROPECUARIA
+2          210  AGROINDUSTRIA                               GRAOS
+3          211  AGROINDUSTRIA         ORIGINACAO E BENEFICIAMENTO
+4          212  AGROINDUSTRIA  PRODUCAO DE ANIMAIS, AVES E PEIXES
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_segmento       0
+ds_segmento       0
+ds_subsegmento    1
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_segmento       69
+ds_segmento       14
+ds_subsegmento    65
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+             count   mean        std    min    25%    50%    75%    max
+cd_segmento   69.0  242.0  20.062403  208.0  225.0  242.0  259.0  276.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+               count unique                        top freq
+ds_segmento       69     14                   SERVICOS   15
+ds_subsegmento    68     65  ATACADISTA E DISTRIBUIDOR    2
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_FATURAMENTO
+-> Linhas: 13, Colunas: 2
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 13 entries, 0 to 12
+Data columns (total 2 columns):
+ #   Column             Non-Null Count  Dtype 
+---  ------             --------------  ----- 
+ 0   cd_faturamento     13 non-null     int64 
+ 1   faixa_faturamento  13 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 340.0+ bytes
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_faturamento', 'faixa_faturamento']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_faturamento              faixa_faturamento
+0              40           Faixa 00 - Ate 4,5 M
+1              41  Faixa 01 - De 4,5 M ate 7,5 M
+2              42   Faixa 02 - De 7,5 M ate 15 M
+3              43    Faixa 03 - De 15 M ate 25 M
+4              44    Faixa 04 - De 25 M ate 35 M
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_faturamento       0
+faixa_faturamento    0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_faturamento       13
+faixa_faturamento    13
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+                count  mean      std   min   25%   50%   75%   max
+cd_faturamento   13.0  46.0  3.89444  40.0  43.0  46.0  49.0  52.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+                  count unique                   top freq
+faixa_faturamento    13     13  Faixa 00 - Ate 4,5 M    1
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_LOCALIDADE
+-> Linhas: 53, Colunas: 3
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 53 entries, 0 to 52
+Data columns (total 3 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   cd_localidade  53 non-null     int64 
+ 1   uf             53 non-null     object
+ 2   pais           53 non-null     object
+dtypes: int64(1), object(2)
+memory usage: 1.4+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_localidade', 'uf', 'pais']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_localidade  uf pais
+0            160  AC  105
+1            161  AL  105
+2            162  AM  105
+3            163  AP  105
+4            164  BA  063
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_localidade    0
+uf               0
+pais             0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_localidade    53
+uf               39
+pais             12
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+               count   mean        std    min    25%    50%    75%    max
+cd_localidade   53.0  186.0  15.443445  160.0  173.0  186.0  199.0  212.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+     count unique  top freq
+uf      53     39   EX   11
+pais    53     12  105   27
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_MODALIDADE
+-> Linhas: 26, Colunas: 2
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 26 entries, 0 to 25
+Data columns (total 2 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   cd_modalidade  26 non-null     int64 
+ 1   modal_comerc   26 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 548.0+ bytes
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_modalidade', 'modal_comerc']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_modalidade                        modal_comerc
+0              1         MODALIDADE ALUGUEL (LEGADO)
+1              2      MODALIDADE ASSINATURA (INTERA)
+2              3  MODALIDADE ASSINATURA COMPLEMENTAR
+3              4              MODALIDADE CORPORATIVO
+4              5                MODALIDADE INTERA 17
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_modalidade    0
+modal_comerc     0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_modalidade    26
+modal_comerc     13
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+               count  mean       std  min   25%   50%    75%   max
+cd_modalidade   26.0  13.5  7.648529  1.0  7.25  13.5  19.75  26.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+             count unique                          top freq
+modal_comerc    26     13  MODALIDADE ALUGUEL (LEGADO)    2
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_STATUSCONTRATO
+-> Linhas: 14, Colunas: 2
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 14 entries, 0 to 13
+Data columns (total 2 columns):
+ #   Column             Non-Null Count  Dtype 
+---  ------             --------------  ----- 
+ 0   cd_status          14 non-null     int64 
+ 1   situacao_contrato  14 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 356.0+ bytes
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_status', 'situacao_contrato']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_status situacao_contrato
+0          1             ATIVO
+1          2         CANCELADO
+2          3           FATURAR
+3          4          GRATUITO
+4          5          PENDENTE
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_status            0
+situacao_contrato    0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_status            14
+situacao_contrato     7
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+           count  mean     std  min   25%  50%    75%   max
+cd_status   14.0   7.5  4.1833  1.0  4.25  7.5  10.75  14.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+                  count unique    top freq
+situacao_contrato    14      7  ATIVO    2
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_TEMPO
+-> Linhas: 303, Colunas: 6
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 303 entries, 0 to 302
+Data columns (total 6 columns):
+ #   Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   cd_tempo   303 non-null    int64
+ 1   dia        303 non-null    int64
+ 2   ano        303 non-null    int64
+ 3   mes        303 non-null    int64
+ 4   trimestre  303 non-null    int64
+ 5   semana     303 non-null    int64
+dtypes: int64(6)
+memory usage: 14.3 KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_tempo', 'dia', 'ano', 'mes', 'trimestre', 'semana']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_tempo  dia   ano  mes  trimestre  semana
+0       304    1  2024    3          1       9
+1       305    1  2024    4          2      14
+2       306    1  2024    5          2      18
+3       307    1  2024    7          3      27
+4       308    1  2024    8          3      31
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_tempo     0
+dia          0
+ano          0
+mes          0
+trimestre    0
+semana       0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_tempo     303
+dia           31
+ano            2
+mes           12
+trimestre      4
+semana        53
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+           count         mean        std     min     25%     50%     75%     max
+cd_tempo   303.0   455.000000  87.612784   304.0   379.5   455.0   530.5   606.0
+dia        303.0    15.927393   8.774663     1.0     8.0    16.0    23.0    31.0
+ano        303.0  2024.214521   0.411169  2024.0  2024.0  2024.0  2024.0  2025.0
+mes        303.0     6.300330   3.427426     1.0     3.0     6.0     9.0    12.0
+trimestre  303.0     2.412541   1.138479     1.0     1.0     2.0     3.0     4.0
+semana     303.0    25.933993  14.932373     1.0    12.0    25.0    39.0    53.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS): Nenhuma coluna categórica encontrada.
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_MARCA
+-> Linhas: 94, Colunas: 2
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 94 entries, 0 to 93
+Data columns (total 2 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   cd_marca     94 non-null     int64 
+ 1   marca_totvs  94 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 1.6+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_marca', 'marca_totvs']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_marca                  marca_totvs
+0        95                          ACT
+1        96         AGROINDUSTRIA - CORE
+2        97  AGROINDUSTRIA - CORPORATIVO
+3        98     AGROINDUSTRIA - PARCEIRO
+4        99                          AMS
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_marca       0
+marca_totvs    0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_marca       94
+marca_totvs    94
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+          count   mean        std   min     25%    50%     75%    max
+cd_marca   94.0  141.5  27.279418  95.0  118.25  141.5  164.75  188.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+            count unique  top freq
+marca_totvs    94     94  ACT    1
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
+====================================================================================================
+TABELA: DIM_LINHARECEITA
+-> Linhas: 88, Colunas: 2
+----------------------------------------------------------------------------------------------------
+INFO DO DATAFRAME:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 88 entries, 0 to 87
+Data columns (total 2 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   cd_lin_rec  88 non-null     int64 
+ 1   ds_lin_rec  88 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 1.5+ KB
+
+----------------------------------------------------------------------------------------------------
+COLUNAS:
+['cd_lin_rec', 'ds_lin_rec']
+----------------------------------------------------------------------------------------------------
+PRIMEIRAS 5 LINHAS:
+   cd_lin_rec       ds_lin_rec
+0          89  ASP COLABORACAO
+1          90              BPO
+2          91              BSO
+3          92     CDU BEMATECH
+4          93          CDU BPO
+----------------------------------------------------------------------------------------------------
+VALORES NULOS POR COLUNA:
+cd_lin_rec    0
+ds_lin_rec    0
+----------------------------------------------------------------------------------------------------
+LINHAS DUPLICADAS:
+0
+----------------------------------------------------------------------------------------------------
+VALORES ÚNICOS POR COLUNA:
+cd_lin_rec    88
+ds_lin_rec    88
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (NUMÉRICAS):
+            count   mean        std   min     25%    50%     75%    max
+cd_lin_rec   88.0  132.5  25.547342  89.0  110.75  132.5  154.25  176.0
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (CATEGÓRICAS):
+           count unique              top freq
+ds_lin_rec    88     88  ASP COLABORACAO    1
+----------------------------------------------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS (DATAS): Nenhuma coluna de data encontrada.
+----------------------------------------------------------------------------------------------------
+====================================================================================================
+
