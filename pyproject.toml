@@ -39,6 +39,7 @@ scikit-learn = "^1.6.1"
 nbformat = ">=4.2.0"
 sqlalchemy = "^2.0.43"
 pyodbc = "^5.2.0"
+openpyxl = "^3.1.5"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "6.29.5"
