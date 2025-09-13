@@ -1,0 +1,3 @@
+"""
+Módulo principal da aplicação.
+"""
