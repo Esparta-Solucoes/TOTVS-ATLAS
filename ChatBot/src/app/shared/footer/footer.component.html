@@ -1,0 +1,21 @@
+<footer class="footer">
+    <div class="container-fluid">
+        <form [formGroup]="form" #f="ngForm" novalidate (ngSubmit)="enviarMensagem()">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-7 form-group chat-box">
+                    <input type="text" class="form-control chat-input" formControlName="input" placeholder="Continue a conversa..."
+                        maxlength="500">
+                    <span class="input-counter">{{ form.get('input').value?.length ?? 0}}/500</span>
+                </div>
+
+                <div class="col-md-1 form-group">
+                    <button type="submit" class="send-btn">
+                        <i class="fa fa-paper-plane"></i> Enviar
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</footer>

@@ -1,0 +1,41 @@
+<nav class="chat-header">
+  <div class="container">
+    <!-- Esquerda: Logo e texto -->
+    <div class="left">
+      <div class="brand-icon">
+        <lucide-angular name="bar-chart-3" [size]="22"></lucide-angular>
+      </div>
+      <div class="brand-text">
+        <h1>Power BI Assistant</h1>
+        <p>Análise Inteligente de Dados</p>
+      </div>
+    </div>
+
+    <!-- Centro: Badges -->
+    <div class="center">
+      <span class="badge badge-success">
+        <span class="dot"></span>
+        Dashboard Online
+      </span>
+      <span class="badge badge-warning">
+        <lucide-angular name="zap" [size]="14"></lucide-angular>
+        IA Ativa
+      </span>
+      <span class="badge badge-muted">
+        <lucide-angular name="shield" [size]="14"></lucide-angular>
+        Seguro
+      </span>
+    </div>
+
+    <!-- Direita: Botão e configurações -->
+    <div class="right">
+      <button class="btn-dashboard" (click)="openDashboard()">
+        <lucide-angular name="external-link" [size]="16"></lucide-angular>
+        Abrir Dashboard
+      </button>
+      <button class="btn-settings">
+        <lucide-angular name="settings" [size]="20"></lucide-angular>
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,135 @@
+.navbar-center {
+  float: center !important;
+}
+
+.chat-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem 0;
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Left (logo + texto) */
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.75rem;
+      background: #0056d2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .brand-text {
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #0056d2;
+        margin: 0;
+      }
+      p {
+        font-size: 1.125rem;
+        color: #6b7280;
+        margin: 0;
+      }
+    }
+  }
+
+  /* Center (badges) */
+  .center {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+
+      &-success {
+        background: #ecfdf5;
+        color: #047857;
+        border-color: #a7f3d0;
+
+        .dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #10b981;
+        }
+      }
+
+      &-warning {
+        background: #fffbeb;
+        color: #b45309;
+        border-color: #fde68a;
+      }
+
+      &-muted {
+        background: #f9fafb;
+        color: #6b7280;
+        border-color: #e5e7eb;
+      }
+    }
+  }
+
+  /* Right (botões) */
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    .btn-dashboard {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      font-size: 1.125rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f9fafb;
+      }
+    }
+
+    .btn-settings {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem;
+      border-radius: 0.75rem;
+      font-size: 1.5rem;
+      border: none;
+      background: transparent;
+      color: #6b7280;
+      cursor: pointer;
+
+      &:hover {
+        color: #111827;
+      }
+    }
+  }
+}
