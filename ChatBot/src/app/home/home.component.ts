@@ -1,9 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
-
-interface Message {
-  sender: "user" | "bot";
-  text: string;
-}
+import { ActivatedRoute } from "@angular/router";
+import { Conversa } from "app/models/Conversa";
+import { Mensagem } from "app/models/Mensagem";
 
 @Component({
   selector: "app-home",
@@ -13,7 +11,7 @@ interface Message {
 export class HomeComponent implements OnInit {
   @ViewChild("mensagensPainel") mensagensPainel: ElementRef;
 
-  @Input() messages: Message[] = [
+  @Input() messages: Mensagem[] = [
     {
       sender: "user",
       text: "Como estão distribuídos os dados no dashboard? Quais são as categorias com maior representatividade?",
@@ -33,11 +31,17 @@ export class HomeComponent implements OnInit {
   ];
 
   newMessage = "";
+  conversaId: string;
+  conversas: Conversa[];
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.messages = JSON.parse(localStorage.getItem("mensagens"));
+    this.route.queryParams.subscribe((params) => {
+      this.conversaId = params["conversaId"];
+      this.atualizarMensagens();
+      console.log("Conversa ID:", this.conversaId);
+    });
   }
 
   sendMessage() {
@@ -55,12 +59,19 @@ export class HomeComponent implements OnInit {
   }
 
   public atualizarMensagens() {
-    this.messages = JSON.parse(localStorage.getItem("mensagens"));
+    const conversas: Conversa[] = JSON.parse(localStorage.getItem("conversas"));
+    const conversaAtual = conversas.find((c) => c.id === this.conversaId);
+    this.messages = conversaAtual.mensagens;
+
     setTimeout(() => {
       if (this.mensagensPainel && this.mensagensPainel.nativeElement) {
         this.mensagensPainel.nativeElement.scrollTop =
           this.mensagensPainel.nativeElement.scrollHeight;
       }
     }, 0);
+  }
+
+  public atualizarConversas() {
+    this.conversas = JSON.parse(localStorage.getItem("conversas"));
   }
 }

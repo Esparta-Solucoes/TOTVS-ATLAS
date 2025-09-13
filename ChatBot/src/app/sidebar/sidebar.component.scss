@@ -68,9 +68,11 @@
   padding: 1rem 1.2rem;
   display: flex;
   justify-content: center;
+  border-bottom: #14336675 1px solid;
 
   .btn-new-conversation {
     width: 100%;
+    height: 90%;
     background: #0056d2;
     color: #fff;
     font-size: 1.15rem;
@@ -129,6 +131,10 @@
       align-items: center;
     }
   }
+}
+
+.sidebar-conversations::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-footer {

@@ -20,8 +20,6 @@ import { LucideAngularModule } from 'lucide-angular';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    NavbarModule,
-    SidebarModule,
     AppRoutingModule
   ],
   declarations: [

@@ -17,6 +17,8 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { FooterModule } from 'app/shared/footer/footer.module';
+import { NavbarModule } from 'app/shared/navbar/navbar.module';
+import { SidebarModule } from 'app/sidebar/sidebar.module';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { FooterModule } from 'app/shared/footer/footer.module';
     FormsModule,
     LbdModule,
     FooterModule,
+    NavbarModule,
+    SidebarModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
