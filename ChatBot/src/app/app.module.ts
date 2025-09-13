@@ -21,7 +21,6 @@ import { LucideAngularModule } from 'lucide-angular';
     RouterModule,
     HttpClientModule,
     NavbarModule,
-    FooterModule,
     SidebarModule,
     AppRoutingModule
   ],
