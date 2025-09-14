@@ -112,6 +112,57 @@ poetry install
 poetry shell
 ```
 
+### 🐳 Executando com Docker
+
+Para facilitar a execução da aplicação em um ambiente isolado e consistente, você pode usar o Docker e o Docker Compose.
+
+**Pré-requisitos:**
+- Docker e Docker Compose instalados.
+
+**Passos:**
+
+1.  **Crie o arquivo de ambiente:**
+    Na raiz do projeto, crie um arquivo chamado `.env` e preencha com suas credenciais. Use o arquivo `.env.example` como modelo.
+
+    ```env
+    # Configurações do Banco de Dados
+    DB_SERVER=seu_servidor_db
+    DB_DATABASE=seu_banco_de_dados
+    DB_USERNAME=seu_usuario
+    DB_PASSWORD=sua_senha
+
+    # Configurações do Qdrant
+    QDRANT_URL=sua_url_qdrant
+    QDRANT_API_KEY=sua_chave_api_qdrant
+
+    # Configurações da LLM (Gemini)
+    GEMINI_API_KEY=sua_chave_api_gemini
+    ```
+
+2.  **Construa e inicie os contêineres:**
+    Execute o comando a seguir na raiz do projeto. Ele irá construir a imagem da API e iniciar o serviço em background.
+
+    ```bash
+    docker-compose up -d --build
+    ```
+
+3.  **Acesse a API:**
+    A aplicação estará disponível nos seguintes endereços:
+    - **API Status:** [http://localhost:8000/](http://localhost:8000/)
+    - **Documentação (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+4.  **Verificando os logs:**
+    Para acompanhar os logs da aplicação em tempo real, use o comando:
+    ```bash
+    docker-compose logs -f
+    ```
+
+5.  **Parando a aplicação:**
+    Para parar e remover os contêineres, execute:
+    ```bash
+    docker-compose down
+    ```
+
 ### ⚠️ Atenção
 
 A partir da versão **2.4**, o **PyTorch** oferece suporte oficial ao **Python 3.12**, incluindo a funcionalidade `torch.compile`. Para garantir máxima estabilidade e compatibilidade com todas as bibliotecas utilizadas neste projeto, recomendamos o uso do **Python 3.11.8**, conforme especificado no arquivo `pyproject.toml`.
