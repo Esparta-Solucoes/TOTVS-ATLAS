@@ -6,8 +6,15 @@ from APP.core import config
 def get_db_connection() -> Engine:
     """
     Cria e retorna uma engine de conexão com o banco de dados Azure SQL.
+    
+    Returns:
+        Engine: Objeto engine do SQLAlchemy para executar operações no banco
+        
+    Raises:
+        Exception: Em caso de falha na conexão
     """
     try:
+        # Preparar string de conexão
         params = urllib.parse.quote_plus(
             f"DRIVER={{ODBC Driver 17 for SQL Server}};"
             f"SERVER={config.DB_SERVER};"
@@ -17,6 +24,7 @@ def get_db_connection() -> Engine:
         )
         engine = create_engine(f"mssql+pyodbc:///?odbc_connect={params}")
         
+        # Testar conexão
         with engine.connect() as connection:
             print("Conexão com o banco de dados Azure bem-sucedida!")
         
