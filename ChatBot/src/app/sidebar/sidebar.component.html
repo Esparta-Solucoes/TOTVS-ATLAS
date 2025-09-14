@@ -10,9 +10,16 @@
         <p>Análise Inteligente</p>
       </div>
     </div>
-    <button class="sidebar-settings">
-      <lucide-angular name="settings" [size]="22"></lucide-angular>
-    </button>
+
+    <div>
+      <button class="sidebar-settings" type="button" (click)="ativarConfiguracao()">
+        <lucide-angular name="settings" [size]="22"></lucide-angular>
+      </button>
+      <ul class="dropdown-menu" *ngIf="configuracaoAtiva">
+        <li><a class="lbl-deletaConversa" (click)="apagarConversa()">Apagar Conversa Atual</a></li>
+      </ul>
+    </div>
+
   </div>
 
   <!-- Botão Nova Conversa -->
@@ -33,7 +40,7 @@
           <lucide-angular name="edit-3" [size]="16"></lucide-angular>
         </div>
         <div class="conversation-info">
-          <span>Hoje</span> • <span>2 mensagens</span>
+          <span>Hoje</span> • <span>{{ conversa?.mensagens?.length ?? 0 }} mensagens</span>
         </div>
       </div>
     </ng-container>

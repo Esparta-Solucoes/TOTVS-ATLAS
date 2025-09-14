@@ -12,6 +12,10 @@
   padding: 10px;
   overflow-y: auto;
   background: #f5f7fa;
+
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  white-space: normal;
 }
 
 .messages::-webkit-scrollbar {
@@ -20,6 +24,7 @@
 
 .message {
   max-width: 75%;
+  width: fit-content;
   padding: 10px 14px;
   margin: 8px 0;
   border-radius: 12px;

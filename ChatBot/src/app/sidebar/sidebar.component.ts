@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Conversa } from "app/models/Conversa";
 declare const $: any;
 declare interface RouteInfo {
@@ -43,14 +43,19 @@ export class SidebarComponent implements OnInit, OnChanges {
   menuItems: any[];
   @Input() public conversas: Conversa[] = [];
 
-  constructor(private router: Router) {}
+  configuracaoAtiva: boolean = false;
+  conversaId: string;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.carregarConversas();
+    this.route.queryParams.subscribe((params) => {
+      this.conversaId = params["conversaId"];
+    });
   }
 
   ngOnChanges() {
-    console.log("Mudou Conversas", this.conversas);
     this.carregarConversas();
   }
 
@@ -62,33 +67,46 @@ export class SidebarComponent implements OnInit, OnChanges {
   }
 
   public criarConversa() {
-    console.log("Criar Conversa")
     this.carregarConversas();
     const novaConversa = new Conversa();
     novaConversa.id = this.generateGUID();
-    this.conversas.push(novaConversa);
+    this.conversas.unshift(novaConversa);
+
     localStorage.setItem("conversas", JSON.stringify(this.conversas));
+
+    this.router.navigate(["/chat"], { queryParams: { conversaId: novaConversa.id } });
   }
 
   public selecionarConversa(id) {
-    console.log("Selecionar Conversa", id);
     this.router.navigate(["/chat"], { queryParams: { conversaId: id } });
   }
 
-
-  public apagarConversa(id) {
+  public apagarConversa() {
     this.carregarConversas();
-    this.conversas = this.conversas.filter((c) => c.id !== id);
+    this.conversas = this.conversas.filter((c) => c.id !== this.conversaId);
 
     localStorage.setItem("conversas", JSON.stringify(this.conversas));
+
+    this.configuracaoAtiva = false;
+
+    if (this.conversas.length === 0) {
+      this.router.navigate(["/chat"]);
+    } else {
+      this.router.navigate(["/chat"], {
+        queryParams: { conversaId: this.conversas[0].id },
+      });
+    }
+  }
+
+  public ativarConfiguracao() {
+    this.configuracaoAtiva = !this.configuracaoAtiva;
   }
 
   private carregarConversas() {
     const data = localStorage.getItem("conversas");
     if (data) {
       this.conversas = JSON.parse(data);
-    }
-    else {
+    } else {
       this.conversas = [];
     }
   }

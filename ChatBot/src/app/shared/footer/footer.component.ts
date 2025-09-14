@@ -78,7 +78,7 @@ export class FooterComponent implements OnInit {
         this.mensagens = conversaAtual.mensagens;
     }
     else {
-        this.conversas.find((c) => c.id === this.conversaId).titulo = titulo;
+        this.conversas.find((c) => c.id === this.conversaId).titulo = titulo.substring(0, 50);
         this.mensagens = [];
         this.atualizaConversasEmit.emit(true);
     }
