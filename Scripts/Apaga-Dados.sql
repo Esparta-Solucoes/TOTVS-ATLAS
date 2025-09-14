@@ -1,0 +1,12 @@
+delete from Dim_Nps
+delete from Dim_Localidade
+delete from Dim_Segmento
+delete from Dim_Faturamento
+delete from Dim_Cliente
+delete from Dim_Marca
+delete from Dim_LinhaReceita
+delete from Dim_Produto
+delete from Dim_Modalidade
+delete from Dim_StatusContrato
+delete from Dim_Tempo
+delete from Fato_Consumo
