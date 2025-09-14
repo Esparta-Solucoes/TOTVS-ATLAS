@@ -16,6 +16,7 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
 # --- Configurações do Modelo de Embedding ---
 EMBEDDING_MODEL = "intfloat/multilingual-e5-large"
+VECTOR_SIZE = 1024  # Tamanho do vetor para o modelo multilingual-e5-large
 
 # --- Configurações da Vector Store ---
-QDRANT_COLLECTION_NAME = "consumo_clientes_db_v2"
+QDRANT_COLLECTION_NAME = "totvs_atlas_collection"
