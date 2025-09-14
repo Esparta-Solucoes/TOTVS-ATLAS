@@ -19,7 +19,8 @@ def load_and_prepare_data(engine: Engine) -> pd.DataFrame:
     tabelas = [
         "Fato_Consumo", "Dim_Cliente", "Dim_Contrato", "Dim_Produto", "Dim_Nps",
         "Dim_Segmento", "Dim_Faturamento", "Dim_Localidade", "Dim_Modalidade",
-        "Dim_StatusContrato", "Dim_Marca", "Dim_LinhaReceita", "Dim_Tempo"
+        "Dim_StatusContrato", "Dim_Marca", "Dim_LinhaReceita", "Dim_Tempo",
+        "Tb_Previsao"  # Nova tabela adicionada
     ]
     
     # Carregamento das tabelas
@@ -40,6 +41,31 @@ def load_and_prepare_data(engine: Engine) -> pd.DataFrame:
     df = pd.merge(df, dfs['Dim_Modalidade'], on='cd_modalidade', how='left')
     df = pd.merge(df, dfs['Dim_Marca'], on='cd_marca', how='left')
     df = pd.merge(df, dfs['Dim_LinhaReceita'], on='cd_lin_rec', how='left')
+    
+    # Adicionar a nova tabela de previsão ao dataframe consolidado
+    if 'Tb_Previsao' in dfs and 'cd_cliente' in dfs['Tb_Previsao'].columns:
+        print("Integrando dados da tabela Tb_Previsao...")
+        # Remover duplicatas de cd_cliente para garantir join 1:1
+        previsao_df = dfs['Tb_Previsao'].drop_duplicates(subset=['cd_cliente'], keep='first')
+        # Selecionar apenas as colunas de interesse para o join
+        colunas_previsao = [
+            'cd_cliente', 'vl_total_historico', 'vl_desconto_historico', 
+            'qtd_produtos_historico', 'fat_faixa', 'resposta_NPS_previsao', 
+            'mes_previsao', 'vl_total_previsao', 'vl_desconto_previsao', 
+            'situacao_contrato_previsao'
+        ]
+        # Filtrar apenas as colunas que existem no DataFrame
+        colunas_existentes = [col for col in colunas_previsao if col in previsao_df.columns]
+        if len(colunas_existentes) < len(colunas_previsao):
+            print(f"Aviso: Algumas colunas esperadas não foram encontradas na tabela Tb_Previsao.")
+            print(f"Colunas esperadas: {colunas_previsao}")
+            print(f"Colunas encontradas: {previsao_df.columns.tolist()}")
+        
+        # Realizar o join com as colunas existentes
+        df = pd.merge(df, previsao_df[colunas_existentes], on='cd_cliente', how='left')
+        print(f"Dados de previsão integrados. Adicionadas {len(colunas_existentes)} colunas.")
+    else:
+        print("Aviso: Tabela Tb_Previsao não encontrada ou não contém a coluna cd_cliente.")
     
     # Tratamento especial para NPS
     if 'respondeAt' in dfs['Dim_Nps'].columns:

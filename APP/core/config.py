@@ -26,4 +26,8 @@ EMBEDDING_MODEL = "intfloat/multilingual-e5-large"
 VECTOR_SIZE = 1024  # Tamanho do vetor para multilingual-e5-large
 
 # Configurações da Vector Store
-QDRANT_COLLECTION_NAME = "totvs_atlas_collection"
+QDRANT_COLLECTION_NAME = os.getenv("VECTOR_STORE_COLLECTION", "totvs_atlas_collection")
+
+# Configurações da LLM (Gemini)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemini-1.5-pro")

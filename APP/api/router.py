@@ -9,6 +9,7 @@ Endpoints para gerenciar o ciclo de vida dos dados vetorizados, incluindo:
 """
 
 from fastapi import APIRouter, HTTPException, status, Query
+from fastapi.responses import PlainTextResponse
 from typing import List, Any
 from APP.services import database, etl, qdrant
 from APP.core.config import QDRANT_COLLECTION_NAME
@@ -81,9 +82,10 @@ def trigger_embedding_process():
 
 @router.get(
     "/search",
-    summary="Busca por Similaridade no Qdrant",
+    summary="Busca por Similaridade no Qdrant e Resposta do Gemini",
     description="""
     Realiza uma busca vetorial na coleção usando uma query de texto, filtrando por código do cliente.
+    Envia os resultados para o Gemini gerar uma resposta contextualizada com base na pergunta.
     
     **Exemplo de uso**:
     ```bash
@@ -94,18 +96,20 @@ def trigger_embedding_process():
 def search_in_vector_store(
     query: str = Query(..., description="Texto da consulta para busca por similaridade"),
     cd_cliente: str = Query(..., description="Código do cliente para filtrar os resultados"),
-    top_k: int = Query(5, description="Número máximo de resultados a retornar")
+    top_k: int = Query(5, description="Número máximo de resultados a retornar"),
+    raw_results: bool = Query(False, description="Se True, retorna apenas os resultados brutos sem processamento da LLM")
 ):
     """
-    Endpoint para busca semântica vetorial com filtro por cliente.
+    Endpoint para busca semântica vetorial com filtro por cliente e geração de resposta via LLM.
     
     Args:
         query: Texto da consulta para busca semântica
         cd_cliente: Código do cliente para filtrar resultados
         top_k: Quantidade máxima de resultados
+        raw_results: Se True, retorna apenas os resultados do Qdrant sem processamento pela LLM
         
     Returns:
-        dict: Resultados da busca semântica
+        dict: Resultados da busca semântica e resposta gerada pela LLM
         
     Raises:
         HTTPException: Em caso de parâmetros inválidos ou erro na busca
@@ -133,23 +137,34 @@ def search_in_vector_store(
         # Realizar busca vetorial com filtro
         results = qdrant.search_vectors(query, cd_cliente, top_k)
         
-        return {
-            "status": "success",
-            "query": query,
-            "cd_cliente": cd_cliente,
-            "results_count": len(results),
-            "results": results
-        }
+        # Retornar apenas os resultados brutos se solicitado
+        if raw_results:
+            return {
+                "status": "success",
+                "query": query,
+                "cd_cliente": cd_cliente,
+                "results_count": len(results),
+                "results": results
+            }
+        
+        # Importar o módulo LLM aqui para evitar importação circular
+        from APP.services import llm
+        
+        # Gerar resposta usando o LLM com base nos resultados da busca
+        llm_response = llm.generate_response(query, results)
+        
+        # Retornar apenas a resposta como texto plano para o chatbot
+        return PlainTextResponse(content=llm_response.get("answer"))
     except HTTPException:
         raise
     except Exception as e:
         error_details = traceback.format_exc()
-        print(f"ERRO durante a busca vetorial: {str(e)}")
+        print(f"ERRO durante a busca vetorial ou geração de resposta: {str(e)}")
         print(f"Detalhes do erro: {error_details}")
         
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, 
-            detail=f"Erro na busca vetorial: {str(e)}. Verifique os logs para mais detalhes."
+            detail=f"Erro na busca ou geração de resposta: {str(e)}. Verifique os logs para mais detalhes."
         )
 
 
