@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="red" data-image="">
+        <app-sidebar [conversas]="conversas"></app-sidebar>
+    </div>
+
+    <div class="main-panel" style="overflow: hidden;">
+        <navbar-cmp></navbar-cmp>
+
+        <div class="main-content" style="min-height: 75% !important;">
+            <div class="container-fluid chat-container">
+
+                <div class="messages" #mensagensPainel>
+                    <div *ngFor="let msg of messages"
+                        [ngClass]="{'user': msg.sender === 'user', 'bot': msg.sender === 'bot'}" class="message">
+                        <div [innerHTML]="msg.text"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer-cmp (atualizaMensagensEmit)="atualizarMensagens()" (atualizaConversasEmit)="atualizarConversas()"></footer-cmp>
+    </div>
+</div>

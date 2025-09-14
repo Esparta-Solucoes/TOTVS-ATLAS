@@ -1,0 +1,63 @@
+<div class="sidebar-wrapper custom-sidebar">
+  <!-- Topo: Logo, nome e configurações -->
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <div class="brand-icon">
+        <lucide-angular name="activity" [size]="32"></lucide-angular>
+      </div>
+      <div class="brand-text">
+        <h1>Power BI Assistant</h1>
+        <p>Análise Inteligente</p>
+      </div>
+    </div>
+
+    <div>
+      <button class="sidebar-settings" type="button" (click)="ativarConfiguracao()">
+        <lucide-angular name="settings" [size]="22"></lucide-angular>
+      </button>
+      <ul class="dropdown-menu" *ngIf="configuracaoAtiva">
+        <li><a class="lbl-deletaConversa" (click)="apagarConversa()">Apagar Conversa Atual</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Botão Nova Conversa -->
+  <div class="sidebar-new-conversation">
+    <button class="btn-new-conversation" (click)="criarConversa()" type="button">
+      <lucide-angular name="plus" [size]="20"></lucide-angular>
+      Nova Conversa
+    </button>
+  </div>
+
+  <!-- Lista de conversas -->
+  <div class="sidebar-conversations">
+
+    <ng-container *ngFor="let conversa of conversas">
+      <div class="conversation-card" (click)="selecionarConversa(conversa.id)">
+        <div class="conversation-title">
+          {{ conversa.titulo || '' }}...
+          <lucide-angular name="edit-3" [size]="16"></lucide-angular>
+        </div>
+        <div class="conversation-info">
+          <span>Hoje</span> • <span>{{ conversa?.mensagens?.length ?? 0 }} mensagens</span>
+        </div>
+      </div>
+    </ng-container>
+
+
+    <!-- Adicione mais cards de conversa aqui se necessário -->
+  </div>
+
+  <!-- Status do dashboard fixo na parte inferior -->
+  <div class="sidebar-footer">
+    <div class="dashboard-status">
+      <lucide-angular name="database" [size]="22"></lucide-angular>
+      <div>
+        <div class="status-title">Dashboard Conectado</div>
+        <div class="status-subtitle">Power BI Analytics</div>
+      </div>
+      <span class="status-dot"></span>
+    </div>
+  </div>
+</div>

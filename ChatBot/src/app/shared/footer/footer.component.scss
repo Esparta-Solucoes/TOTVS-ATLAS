@@ -1,0 +1,63 @@
+/* filepath: c:\Users\Lucas\OneDrive\Documentos\GitHub\TOTVS-ATLAS\Chat Bot\src\app\shared\footer\footer.component.scss */
+.footer {
+  padding: 3.5rem 3.5rem 6.5rem 3.5rem;
+  background: #fff;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.input-icon, .input-mic {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+.chat-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.chat-input {
+  border-radius: 24px;
+  border: 1px solid #e3e7ee;
+  padding: 2rem 2.5rem;
+  background: #fafbfc;
+  width: 90%;
+}
+
+.input-counter {
+  color: #b0b8c1;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.send-btn {
+  background: #6ba6f9;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.send-btn i {
+  font-size: 1.2rem;
+}
+
+.send-btn:hover {
+  background: #468de4;
+}
