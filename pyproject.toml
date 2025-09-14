@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "TOTVS ATLAS é um projeto cuja a proposta é atender os desafios do Enterprise Challenge 2025 da FIAP. O projeto busca criar um agente de IA capazes de entender relatórios gerando insights para stakeholders de cada empresa."
 authors = ["Esparta-Solucoes: https://github.com/Esparta-Solucoes"]
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
