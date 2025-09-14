@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   totvs-atlas-api:
     build:
@@ -15,6 +13,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - QDRANT_URL=${QDRANT_URL}
       - QDRANT_API_KEY=${QDRANT_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./:/app
     restart: unless-stopped
