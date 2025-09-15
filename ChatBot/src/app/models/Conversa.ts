@@ -4,6 +4,7 @@ export class Conversa {
     constructor(){}
 
     id: string;
+    cod_cliente: string;
     titulo: string;
     mensagens: Mensagem[];
 }

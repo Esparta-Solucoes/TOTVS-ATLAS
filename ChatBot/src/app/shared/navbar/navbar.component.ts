@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit{
 
     public openDashboard(): void {
         window.open(
-        'https://app.powerbi.com/view?r=eyJrIjoiMjU2YWM1ZDktMWMxMy00ODI1LTk5N2EtNDAzZWVlNTk3Nzg2IiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9',
+        'https://app.powerbi.com/view?r=eyJrIjoiMTQwZTkzZGMtYzM4OC00NjQ3LThlOTYtYjg4NjRhZjllMDgyIiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9',
         '_blank',
         'noopener,noreferrer'
         );

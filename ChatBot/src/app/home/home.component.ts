@@ -50,18 +50,23 @@ export class HomeComponent implements OnInit {
     this.messages.push({ sender: "user", text: this.newMessage });
     this.newMessage = "";
 
-    setTimeout(() => {
-      this.messages.push({
-        sender: "bot",
-        text: "🤖 Esta é uma resposta automática de teste!",
-      });
-    }, 1000);
+    // setTimeout(() => {
+    //   this.messages.push({
+    //     sender: "bot",
+    //     text: "🤖 Esta é uma resposta automática de teste!",
+    //   });
+    // }, 1000);
   }
 
   public atualizarMensagens() {
+    console.log("Atualizando mensagens para a conversa ID:", this.conversaId);
+
     const conversas: Conversa[] = JSON.parse(localStorage.getItem("conversas"));
     const conversaAtual = conversas.find((c) => c.id === this.conversaId);
-    this.messages = conversaAtual.mensagens;
+    this.messages = conversaAtual.mensagens ?? [];
+
+    if (this.messages.length === 0) this.adicionarMensagemInserirCodCliente();
+    else if (!conversaAtual.cod_cliente) this.validarCodCliente();
 
     setTimeout(() => {
       if (this.mensagensPainel && this.mensagensPainel.nativeElement) {
@@ -73,5 +78,34 @@ export class HomeComponent implements OnInit {
 
   public atualizarConversas() {
     this.conversas = JSON.parse(localStorage.getItem("conversas"));
+  }
+
+  private validarCodCliente() {
+    const ultimaMensagem = this.messages[this.messages.length - 1];
+    const codClienteRegex = /^\d{6}$/; // Exemplo: código do cliente com 6 dígitos
+
+    if (ultimaMensagem.sender === "user") {
+      if (codClienteRegex.test(ultimaMensagem.text)) {
+        // Código do cliente válido
+        this.atualizarConversas();
+        const conversaAtual = this.conversas.find(
+          (c) => c.id === this.conversaId
+        );
+        conversaAtual.cod_cliente = ultimaMensagem.text;
+        localStorage.setItem("conversas", JSON.stringify(this.conversas));
+      }
+      else{
+        this.adicionarMensagemInserirCodCliente();
+      }
+    }
+  }
+
+  private adicionarMensagemInserirCodCliente() {
+    // setTimeout(() => {
+    //   this.messages.push({
+    //     sender: "bot",
+    //     text: "🤖 Insira um código de cliente válido: ",
+    //   });
+    // }, 1000);
   }
 }

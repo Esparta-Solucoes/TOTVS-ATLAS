@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { Conversa } from "app/models/Conversa";
+import { ChatService } from "app/services/chat.service";
 
 declare var $: any;
 
@@ -25,7 +26,8 @@ export class FooterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private chatService: ChatService
   ) {}
 
   ngOnInit() {
@@ -46,21 +48,16 @@ export class FooterComponent implements OnInit {
     console.log(this.form.value);
 
     const mensagem = new Mensagem("user", this.form.value.input);
-    this.carregarMensagens(this.form.value.input);
-    console.log("Mensagens", this.mensagens);
-    this.mensagens.push(mensagem);
-    this.conversas.find((c) => c.id === this.conversaId).mensagens =
-      this.mensagens;
-    localStorage.setItem("conversas", JSON.stringify(this.conversas));
-    this.form.get("input")?.patchValue("");
+    const codCliente = "T00053";
 
-    this.atualizaMensagensEmit.emit(true);
+    console.log("Mensagem:", mensagem);
+    console.log("CodCliente:", codCliente);
 
-    setTimeout(() => {
-      const mensagemBot = new Mensagem(
-        "bot",
-        "🤖 Esta é uma resposta automática de teste!"
-      );
+    this.chatService.enviarMensagem(mensagem.text, codCliente).subscribe((res) => {
+      console.log("Resposta da API:", res);
+
+      const mensagemBot = new Mensagem("bot", res);
+
       this.carregarMensagens();
       this.mensagens.push(mensagemBot);
       this.conversas.find((c) => c.id === this.conversaId).mensagens =
@@ -68,7 +65,17 @@ export class FooterComponent implements OnInit {
 
       localStorage.setItem("conversas", JSON.stringify(this.conversas));
       this.atualizaMensagensEmit.emit(true);
-    }, 1000);
+    })
+
+    this.carregarMensagens(this.form.value.input);
+    // console.log("Mensagens", this.mensagens);
+    this.mensagens.push(mensagem);
+    this.conversas.find((c) => c.id === this.conversaId).mensagens =
+      this.mensagens;
+    localStorage.setItem("conversas", JSON.stringify(this.conversas));
+    this.form.get("input")?.patchValue("");
+
+    this.atualizaMensagensEmit.emit(true);
   }
 
   public carregarMensagens(titulo?) {

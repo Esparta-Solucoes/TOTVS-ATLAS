@@ -60,3 +60,15 @@ LICENSE
 
 # Other
 **/.DS_Store
+
+
+ETL/
+Arquitetura/
+data/
+ChatBot/
+identidade_Visual/
+modelo_previsao/
+notebooks/
+scripts/
+Sprints/
+Templates_Desafio/
